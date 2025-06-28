@@ -114,3 +114,5 @@ For more advanced firewall management, you might consider using `ufw` (Uncomplic
    ```bash
    sudo ufw status
    ```
+### screenshot:- status of firewall of my kali linux PC
+ ![Image](https://github.com/user-attachments/assets/9f3da1e3-2c75-471e-a039-976de35408f1)
