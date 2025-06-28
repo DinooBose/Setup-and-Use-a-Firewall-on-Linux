@@ -1,0 +1,70 @@
+ Q 1. What is a firewall?
+
+    A firewall is a network security device or software that monitors and controls incoming and outgoing network traffic based on preconfigured security rules. Its primary purpose is to establish a barrier between a trusted internal network and untrusted external networks (such as the Internet), blocking malicious traffic and allowing legitimate communication.
+
+    Difference between stateful and stateless firewall?
+        Stateless firewall
+        • Examines packets in isolation (no memory of previous packets)
+        • Applies rules solely based on packet headers (source/dest IP, port, protocol)
+        • Faster but less context-aware
+        Stateful firewall
+        • Keeps track of the state of active connections (TCP handshakes, session info)
+        • Makes decisions based on both packet headers and connection state
+        • More secure for protocols requiring multi-packet exchanges (e.g., TCP)
+
+  Q 2. What are inbound and outbound rules?
+     Inbound rules govern traffic entering (ingress) your network or host. For example, a rule might allow HTTP (TCP port 80) traffic to your web server.
+     Outbound rules govern traffic leaving (egress) your network or host. For example, you might block all outbound SMTP (port 25) except from your mail server to prevent compromised machines from sending spam.
+
+  Q 3. How does UFW simplify firewall management?
+
+    UFW (Uncomplicated Firewall) is a front-end for iptables on Ubuntu/Debian systems. It:
+
+    • Provides simple commands (allow/deny by port, IP, application)
+
+    • Manages complex iptables rules under the hood
+
+    • Ships with predefined application profiles (e.g., “OpenSSH,” “WWW”)
+
+    • Enables easy logging and rule verification with single-line syntax
+
+  Q 4. Why block port 23 (Telnet)?
+
+    • Telnet transmits credentials and data in plaintext—susceptible to eavesdropping and credential theft.
+
+    • It lacks modern authentication/encryption mechanisms.
+
+    • SSH (port 22) is the secure alternative, providing encrypted sessions and stronger authentication.
+
+  Q 5. What are common firewall mistakes?
+
+    • Overly permissive rules (e.g., allowing 0.0.0.0/0 on critical ports)
+
+    • Forgetting to restrict outbound traffic—leads to data exfiltration or botnet use
+
+    • Misordering rules so that a broad “allow” precedes a narrow “deny”
+
+    • Ignoring firewall logging and alerts—missed intrusion indicators
+
+    • Neglecting to update firewall firmware or patch underlying OS
+
+  Q 6. How does a firewall improve network security?
+
+    • Blocks unauthorized or malicious traffic at the perimeter
+
+    • Enforces policy-based access control (who/what can talk to whom)
+
+    • Segments network into trust zones (DMZ, LAN, VPN)
+
+    • Logs and alerts on suspicious activity for forensic analysis
+
+    • Integrates with intrusion prevention/detection systems (IDS/IPS)
+
+  Q 7. What is NAT in firewalls?
+
+    NAT (Network Address Translation) rewrites IP address information in packet headers as they pass through a router or firewall. Two common types:
+
+    • Static NAT (one-to-one): Maps a public IP to a single private IP—useful for hosting internal servers.
+
+    • PAT (Port Address Translation or “masquerading”): Many private IPs share one public IP, differentiated by TCP/UDP port numbers—conserves public IPs and hides internal topology.
+
